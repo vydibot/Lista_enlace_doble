@@ -5,9 +5,11 @@ package Enlace_nodos;
  * @author Jorge Malaver
  */
 //import java.util.Random();
-import Creacion_nodo.Nodo;
 import java.util.Random;
+
 import javax.swing.JOptionPane;
+
+import Creacion_nodo.Nodo;
 
 
 public class Captura {
@@ -99,13 +101,5 @@ public class Captura {
     JOptionPane.showMessageDialog(null, "Se eliminaron los primeros " + count + " nodos.");
   }
     
-  public String obtenerListaComoTexto() {
-    StringBuilder sb = new StringBuilder();
-    Nodo actual = p;
-    while (actual != null) {
-        sb.append(actual.num).append(" ");
-        actual = actual.sig;
-    }
-    return sb.length() > 0 ? sb.toString() : "(Lista vacía)";
-}
-}// ciarra la clase
+  
+}// cierra la clase

@@ -9,10 +9,14 @@ package com.mycompany.lista_enlace_doble;
  *
  * @author pc
  */
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import Enlace_nodos.Captura;
-import java.util.Scanner;
-import javax.swing.*;
-import java.awt.event.*;
 
 public class Lista_enlace_doble {
 
@@ -52,9 +56,10 @@ public class Lista_enlace_doble {
 
         btnImprimir.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Obtener la lista como texto
-                String lista = obj.obtenerListaComoTexto();
-                JOptionPane.showMessageDialog(frame, "Lista actual:\n" + lista);
+               
+                
+                obj.imprimir();
+
             }
         });
 
