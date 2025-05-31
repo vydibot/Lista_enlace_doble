@@ -17,6 +17,7 @@ public class Captura {
     public Nodo p,q,cab=null,aux;
      String mostrar="";
      Random rnd = new Random();
+
     public void Generacion_enlace(){
         num3= 1+ rnd.nextInt(12);    
     for(i=0;i<=num3;i++) {
@@ -62,20 +63,23 @@ public class Captura {
     Nodo actual = p;
     while (actual != null) {
         if (actual.num == numero) {
+            Nodo anterior = actual.ant;
+            Nodo siguiente = actual.sig;
+
             // Si es el primer nodo
-            if (actual.ant == null) {
-                p = actual.sig;
+            if (anterior == null) {
+                p = siguiente;
                 if (p != null) {
                     p.ant = null;
                 }
             } else {
-                actual.ant.sig = actual.sig;
+                anterior.sig = siguiente;
             }
             // Si es el último nodo
-            if (actual.sig == null) {
-                cab = actual.ant;
+            if (siguiente == null) {
+                cab = anterior;
             } else {
-                actual.sig.ant = actual.ant;
+                siguiente.ant = anterior;
             }
             JOptionPane.showMessageDialog(null, "Nodo con número " + numero + " eliminado.");
             return;
@@ -83,8 +87,7 @@ public class Captura {
         actual = actual.sig;
     }
     JOptionPane.showMessageDialog(null, "No se encontró un nodo con el número " + numero + ".");
-  }
-
+}
   public void eliminarPrimerosN(int n) {
     int count = 0;
     while (p != null && count < n) {
