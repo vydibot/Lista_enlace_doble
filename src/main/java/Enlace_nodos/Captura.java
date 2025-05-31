@@ -89,20 +89,20 @@ public class Captura {
     JOptionPane.showMessageDialog(null, "No se encontró un nodo con el número " + numero + ".");
 }
   public void eliminarPrimerosN(int n) {
-    int count = 0;
-    while (p != null && count < n) {
-        Nodo siguiente = p.sig;
-        p = siguiente;
-        if (p != null) {
-            p.ant = null;
+        int count = 0;
+        for(int i = 0; i < n && p != null; i++) {
+            Nodo siguiente = p.sig;
+            p = siguiente;
+            if (p != null) {
+                p.ant = null;
+            }
+            count++;
         }
-        count++;
+        if (p == null) {
+            cab = null;
+        }
+        JOptionPane.showMessageDialog(null, "Se eliminaron los primeros " + count + " nodos.");
     }
-    if (p == null) {
-        cab = null;
-    }
-    JOptionPane.showMessageDialog(null, "Se eliminaron los primeros " + count + " nodos.");
-  }
     
   
 }// cierra la clase
